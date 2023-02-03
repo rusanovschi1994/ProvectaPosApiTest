@@ -5,7 +5,6 @@ import org.junit.Test;
 import provecta_api_tests.base.LoginApiTest;
 import provecta_api_tests.base.Specification;
 import provecta_pos.pojo.get.branch_controller.Branch;
-import provecta_pos.read_properties.ConfigProvider;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +16,7 @@ public class BranchApiTest extends LoginApiTest {
     @Test
     public void checkBranchNameWithNotNullValue(){
 
-        Specification.installSpecification(Specification.requestSpec(ConfigProvider.BASE_URL), Specification.responseSpecOK200());
+        Specification.installSpecification(Specification.requestSpec(), Specification.responseSpecOK200());
 
         List<Branch> branch = given()
                 .header("Authorization", getLoginTypeAndToken())

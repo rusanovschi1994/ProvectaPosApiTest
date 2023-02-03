@@ -16,5 +16,4 @@ public interface ConfigProvider {
 
     String ADMIN_USERNAME = getConfig().getString("userParams.admin.username");
     String ADMIN_PASSWORD = getConfig().getString("userParams.admin.password");
-    String BASE_URL = getConfig().getString("base_url");
 }

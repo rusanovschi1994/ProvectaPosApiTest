@@ -6,16 +6,17 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import provecta_pos.pojo.post.common_controller.LoginRequest;
-import provecta_pos.pojo.post.common_controller.LoginResponse;
+import org.junit.BeforeClass;
+import provecta_pos.helpers.Constants;
 
-public class Specification {
+public class Specification extends Constants {
 
-    public static RequestSpecification requestSpec(String url){
+    public static RequestSpecification requestSpec(){
 
         return new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .setBaseUri(url)
+                .setBaseUri(Server.PROVECTA_URL)
+                .setBasePath(Path.PROVECTA_PATH)
                 .build();
     }
 

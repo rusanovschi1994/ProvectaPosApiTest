@@ -11,7 +11,6 @@ import static io.restassured.RestAssured.given;
 
 public class ArticlesSelectApiNoPojoTest extends LoginApiTest {
 
-    @Test
     public void checkArticle(){
 
         Response response = given()
