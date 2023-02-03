@@ -23,5 +23,6 @@ public class Constants {
         public static String PROVECTA_POST_LOGIN = "framework/common/login";
         public static String PROVECTA_GET_ARTICLE = "stock/article/select";
         public static String PROVECTA_GET_BRANCH = "framework/owner/branch/select";
+        public static String PROVECTA_GET_EMPLOYEE = "framework/owner/employee/select";
     }
 }
