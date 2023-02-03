@@ -5,26 +5,27 @@ import org.junit.Assert;
 import org.junit.Test;
 import provecta_api_tests.base.LoginApiTest;
 import provecta_api_tests.base.Specification;
+import provecta_pos.helpers.Constants;
 import provecta_pos.pojo.get.article_contoller.article_select.ArticleSelect;
-import provecta_pos.read_properties.ConfigProvider;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
+import static provecta_pos.helpers.Constants.Actions.PROVECTA_GET_ARTICLE;
 
 public class ArticleSelectApiTest extends LoginApiTest {
 
     @Test
     public void checkArticleNameWithNotNullValue(){
 
-        Specification.installSpecification(Specification.requestSpec(ConfigProvider.BASE_URL), Specification.responseSpecOK200());
+        Specification.installSpecification(Specification.requestSpec(), Specification.responseSpecOK200());
 
         List<ArticleSelect> articleSelect = given()
                 .header("Authorization", getLoginTypeAndToken())
                 .when()
-                .get("api/v1/stock/article/select")
+                .get(PROVECTA_GET_ARTICLE)
                 .then().log().body()
                 .body("Id", notNullValue())
                 .body("Code", notNullValue())
